@@ -143,11 +143,6 @@ print("Melhor order: ", best_param, " MAPE:", best_acc)"""
 
 
 
-    'params = []\nfor x in range(0, 11):\n    for y in range(0, 11):\n        for z in range(0, 11):\n            params.append((x, y, z))\nbest_param = None\nbest_acc = float("inf")\nfor param in params:\n    try:\n        model = ARIMA(df.Vendas, order = param).fit()\n        acc = mape(df.Vendas, model.predict(typ = "levels"))\n        if acc < best_acc:\n            best_acc = acc\n            best_param = param\n        print("Order: ", param, "MAPE:", acc)\n    except: \n        pass\nprint("Melhor order: ", best_param, " MAPE:", best_acc)'
-
-
-
-
 ```python
 model = ARIMA(df.Vendas, order = (7,1,6)).fit()
 acc = mape(df.Vendas, model.predict(typ = "levels"))
